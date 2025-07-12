@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "./ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet"
 import { Menu } from "lucide-react"
+import { DarkModeToggle } from "./dark-mode-toggle"
 
 const navLinks = [
   { href: "#about", label: "About Me" },
@@ -75,8 +76,10 @@ export function Header() {
           <Button asChild className="ml-4">
             <Link href="#contact">Contact Me</Link>
           </Button>
+          <DarkModeToggle />
         </nav>
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-2">
+            <DarkModeToggle />
             <Sheet open={isMobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                 <SheetTrigger asChild>
                     <Button variant="ghost" size="icon">

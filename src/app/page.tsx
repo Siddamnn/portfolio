@@ -2,7 +2,7 @@ import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Projects, type Project } from "@/components/projects"
-import { Poems } from "@/components/poems"
+import { Poems, type Poem } from "@/components/poems"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 import { Box } from "lucide-react"
@@ -93,6 +93,22 @@ const frontendProjects: Project[] = [
   },
 ]
 
+const poems: Poem[] = [
+    {
+      title: "Neon Heartbeat",
+      text: "The city breathes in shades of pink and blue,\nA million stories in the evening dew.\nEach window, a screen, a fleeting scene,\nIn this river of light, this urban dream."
+    },
+    {
+      title: "Starlight on Sunset",
+      text: "Asphalt veins under a violet sky,\nWhere dreams take flight and ambitions fly.\nThe day descends, a cinematic fade,\nA promise whispered, a memory made."
+    },
+    {
+      title: "Echoes in the Canyon",
+      text: "The concrete whispers tales of old,\nOf silver screens and stories told.\nA lonely saxophone begins to weep,\nSecrets the silent, sleeping city keep."
+    },
+]
+
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -103,7 +119,7 @@ export default function Home() {
         <Projects id="ai-projects" title="AI Projects" projects={aiProjects} />
         <Projects id="blockchain-projects" title="Blockchain Projects" projects={blockchainProjects} />
         <Projects id="frontend-projects" title="Frontend Projects" projects={frontendProjects} />
-        <Poems />
+        <Poems poems={poems}/>
         <Contact />
       </main>
       <Footer />
