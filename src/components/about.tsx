@@ -15,7 +15,7 @@ export function About() {
           <Card className="overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105 hover:shadow-primary/20 -rotate-2 hover:rotate-0">
             <CardContent className="p-0">
               <Image
-                src="https://placehold.co/600x800.png"
+                src="/me.jpg"
                 alt="Sid silhouette against LA skyline"
                 width={600}
                 height={800}

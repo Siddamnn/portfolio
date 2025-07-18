@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
-  title: "Sid's Starlit Stage",
+  title: "Welcome to Sid's",
   description: 'Welcome to the portfolio of Sid, a creator of neon dreams.',
 };
 

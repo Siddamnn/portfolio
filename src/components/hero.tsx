@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from 'next/image'
 import { SiteLogo } from "./site-logo"
-
+import bg from 'C:\Users\siddh\Desktop\SID\Code\Portfolio\portfolio\src\components\bg.png'
 export function Hero() {
   const [offsetY, setOffsetY] = useState(0)
   const handleScroll = () => setOffsetY(window.pageYOffset)
@@ -20,7 +20,7 @@ export function Hero() {
         style={{ transform: `translateY(${offsetY * 0.3}px)` }}
       >
         <Image
-          src="https://placehold.co/1920x1080.png"
+          src='/bg.png'
           alt="LA city lights"
           fill
           className="object-cover opacity-30 dark:opacity-50"
