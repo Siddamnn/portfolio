@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from '@/components/theme-provider';
+import { BackgroundMusic } from '@/components/background-music';
 
 export const metadata: Metadata = {
   title: "Welcome to Sid's",
@@ -28,6 +29,7 @@ export default function RootLayout({
             disableTransitionOnChange
         >
             {children}
+            <BackgroundMusic src="/background-music.mp3" />
             <Toaster />
         </ThemeProvider>
       </body>
