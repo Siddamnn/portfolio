@@ -12,7 +12,7 @@ interface BackgroundMusicProps {
 
 export function BackgroundMusic({ src, className }: BackgroundMusicProps) {
   const audioRef = useRef<HTMLAudioElement>(null)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(true)
 
   useEffect(() => {
     const audio = audioRef.current
@@ -21,6 +21,18 @@ export function BackgroundMusic({ src, className }: BackgroundMusicProps) {
     // Set volume to 30% and enable looping
     audio.volume = 0.3
     audio.loop = true
+
+    // Auto-play when component mounts
+    const playAudio = async () => {
+      try {
+        await audio.play()
+      } catch (error) {
+        console.error('Auto-play failed:', error)
+        setIsPlaying(false)
+      }
+    }
+
+    playAudio()
 
     const handlePlay = () => setIsPlaying(true)
     const handlePause = () => setIsPlaying(false)
