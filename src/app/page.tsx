@@ -68,7 +68,7 @@ const frontendProjects: Project[] = [
   {
     title: "Pamodoro Timer",
     description: "A minimalist Pomodoro timer and to-do list designed to help you cultivate focus and grow a virtual garden of delightful plants.",
-    imageUrl: "public/pamodoro.png",
+    imageUrl: "/pamodoro.png",
     imageHint: "movie poster jazz",
     tags: ["NextJS", "Typescript", "CSS"],
     liveUrl: "https://pamodoro-timer.vercel.app/",
