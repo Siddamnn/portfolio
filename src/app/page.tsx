@@ -66,17 +66,17 @@ const blockchainProjects: Project[] = [
 
 const frontendProjects: Project[] = [
   {
-    title: "La La Land Fan Page",
-    description: "A tribute to the movie that inspired this very portfolio. A responsive, animated website built with React and Framer Motion.",
-    imageUrl: "https://placehold.co/600x400.png",
+    title: "Pamodoro Timer",
+    description: "A minimalist Pomodoro timer and to-do list designed to help you cultivate focus and grow a virtual garden of delightful plants.",
+    imageUrl: "public/pamodoro.png",
     imageHint: "movie poster jazz",
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
-    liveUrl: "#",
-    repoUrl: "https://github.com",
+    tags: ["NextJS", "Typescript", "CSS"],
+    liveUrl: "https://pamodoro-timer.vercel.app/",
+    repoUrl: "https://github.com/Siddamnn/Pamodoro-timer",
   },
   {
     title: "E-commerce Storefront",
-    description: "A modern, fast, and responsive storefront for an online clothing brand. Features a full shopping cart, checkout process, and product filtering.",
+    description: "",
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "fashion store shopping",
     tags: ["Next.js", "Redux", "Stripe"],
