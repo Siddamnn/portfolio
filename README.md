@@ -182,7 +182,7 @@ This project is optimized for deployment on:
 
 **Sid** - Creator of Neon Dreams
 - GitHub: [@Siddamnn](https://github.com/Siddamnn)
-- Portfolio: [siddamn.dev]
+- Portfolio: [Welocome to Sid's](https://www.siddamn.dev)
 
 ---
 
