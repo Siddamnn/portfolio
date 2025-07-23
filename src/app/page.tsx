@@ -9,12 +9,12 @@ import { Box } from "lucide-react"
 
 const aiProjects: Project[] = [
   {
-    title: "Poem Generator",
-    description: "An AI that writes poetry in the style of various famous poets. This project uses generative models to create unique verses based on a given topic.",
-    imageUrl: "https://placehold.co/600x400.png",
+    title: "Smart Interview Assistant",
+    description: "An AI that helps you prepare for interviews by simulating real interview questions and providing feedback on your answers.",
+    imageUrl: "qa.png",
     imageHint: "abstract art poetry",
-    tags: ["GenAI", "NLP", "Next.js"],
-    liveUrl: "#poems",
+    tags: ["GenAI", "NLP", "Python", "Gradio", "Gemini"],
+    liveUrl: "https://siddamn-qa-assistant.hf.space/",
   },
   {
     title: "Dream Interpreter",
