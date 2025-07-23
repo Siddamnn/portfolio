@@ -11,7 +11,7 @@ const aiProjects: Project[] = [
   {
     title: "Smart Interview Assistant",
     description: "An AI that helps you prepare for interviews by simulating real interview questions and providing feedback on your answers.",
-    imageUrl: "qa.png",
+    imageUrl: "/qa.png",
     imageHint: "abstract art poetry",
     tags: ["GenAI", "NLP", "Python", "Gradio", "Gemini"],
     liveUrl: "https://siddamn-qa-assistant.hf.space/",
