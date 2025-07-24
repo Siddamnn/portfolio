@@ -87,7 +87,7 @@ export default function Home() {
         <Hero />
         <About />
         <Projects id="ai-projects" title="AI Projects" projects={aiProjects} />
-        <Projects id="blockchain-projects" title="Blockchain Projects" projects={blockchainProjects} />
+        
         <Projects id="frontend-projects" title="Frontend Projects" projects={frontendProjects} />
         <Poems poems={poems}/>
         <Contact />
