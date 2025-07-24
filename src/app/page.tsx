@@ -34,36 +34,6 @@ const aiProjects: Project[] = [
   },
 ]
 
-const blockchainProjects: Project[] = [
-  {
-    title: "Decentralized Voting",
-    description: "A secure and transparent voting system built on the Ethereum blockchain. Each vote is a transaction, ensuring immutability and auditability.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "blockchain voting network",
-    tags: ["Ethereum", "Solidity", "dApp"],
-    repoUrl: "https://github.com",
-    techIcon: <Box className="text-muted-foreground" />,
-  },
-  {
-    title: "Supply Chain Tracker",
-    description: "Tracking products from source to consumer using a Hyperledger Fabric blockchain, providing transparency and reducing fraud in supply chains.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "supply chain logistics",
-    tags: ["Hyperledger", "Go", "Enterprise"],
-    repoUrl: "https://github.com",
-    techIcon: <Box className="text-muted-foreground" />,
-  },
-  {
-    title: "NFT Ticketing Platform",
-    description: "An event ticketing system where each ticket is a unique NFT, preventing scalping and allowing for a secondary market controlled by the event organizer.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "nft ticket concert",
-    tags: ["NFT", "ERC-721", "Web3"],
-    liveUrl: "#",
-    techIcon: <Box className="text-muted-foreground" />,
-  },
-]
-
 const frontendProjects: Project[] = [
   {
     title: "Pamodoro Timer",
@@ -75,13 +45,13 @@ const frontendProjects: Project[] = [
     repoUrl: "https://github.com/Siddamnn/Pamodoro-timer",
   },
   {
-    title: "E-commerce Storefront",
-    description: "",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "fashion store shopping",
-    tags: ["Next.js", "Redux", "Stripe"],
-    liveUrl: "#",
-    repoUrl: "https://github.com",
+    title: "Echoes of You",
+    description: "A website which writes you a unique poem based on your spotify data. It uses the Spotify API to fetch your top tracks and artists, then generates a personalized poem.",
+    imageUrl: "/spotify.png",
+    imageHint: "spotify poem music",
+    tags: ["Next.js", "Typescript", "Tailwind CSS", "Spotify API"],
+    liveUrl: "https://echoes-of-you.vercel.app/",
+    repoUrl: "https://github.com/Siddamnn/Echoes-of-You",
   },
   {
     title: "Interactive Data Dashboard",
