@@ -5,7 +5,6 @@ import { Projects, type Project } from "@/components/projects"
 import { Poems, type Poem } from "@/components/poems"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
-import { Box } from "lucide-react"
 
 const aiProjects: Project[] = [
   {
