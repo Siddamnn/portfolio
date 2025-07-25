@@ -53,12 +53,12 @@ const frontendProjects: Project[] = [
     repoUrl: "https://github.com/Siddamnn/Echoes-of-You",
   },
   {
-    title: "Interactive Data Dashboard",
-    description: "A dashboard for visualizing complex datasets with interactive charts and graphs. Built with D3.js and React for a leading analytics company.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "data dashboard charts",
-    tags: ["D3.js", "React", "Data Viz"],
-    liveUrl: "#",
+    title: "Rainy Windows",
+    description: "A simple soothing ambience generator that plays rain sounds and displays a calming rainy window animation. Perfect for relaxation or focus.",
+    imageUrl: "/rainy-windows.png",
+    imageHint: "rainy window ambience",
+    tags: ["Next.js", "React", "Typescript"],
+    liveUrl: "https://rainy-windows-dashboard.vercel.app/",
   },
 ]
 
