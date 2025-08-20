@@ -24,12 +24,12 @@ const aiProjects: Project[] = [
     repoUrl: "https://github.com",
   },
   {
-    title: "Image Style Transfer",
-    description: "Upload an image and have it repainted in the style of famous artists like Van Gogh or Picasso. Utilizes convolutional neural networks.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "style transfer art",
-    tags: ["Computer Vision", "Python", "Flask"],
-    liveUrl: "#",
+    title: "SpeakGenie",
+    description: "An AI powered english language learning tool that provides personalized lessons and exercises.",
+    imageUrl: "/speakgenie.png",
+    imageHint: "speak genie",
+    tags: ["AI", "Language Learning", "Personalized"],
+    liveUrl: "https://speak-genie-five.vercel.app/",
   },
 ]
 
@@ -59,6 +59,13 @@ const frontendProjects: Project[] = [
     imageHint: "rainy window ambience",
     tags: ["Next.js", "React", "Typescript"],
     liveUrl: "https://rainy-windows-dashboard.vercel.app/",
+  },{
+    title: "React-Flow",
+    description: "A simple tool to make flow diagrams using React and D3.js.",
+    imageUrl: "/react-flow.png",
+    imageHint: "react flow diagram",
+    tags: ["Next.js", "React", "Typescript"],
+    liveUrl: "https://react-flow-ebon.vercel.app/",
   },
 ]
 
