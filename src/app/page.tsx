@@ -13,15 +13,7 @@ const aiProjects: Project[] = [
     imageUrl: "/qa.png",
     imageHint: "abstract art poetry",
     tags: ["GenAI", "NLP", "Python", "Gradio", "Gemini"],
-    liveUrl: "https://siddamn-qa-assistant.hf.space/",
-  },
-  {
-    title: "Dream Interpreter",
-    description: "A fun tool that provides whimsical interpretations of your dreams using a custom-trained language model. Enter your dream and see what it means.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "dream cloud abstract",
-    tags: ["AI", "React", "Firebase"],
-    repoUrl: "https://github.com",
+    liveUrl: "https://ai-interview-eta-indol.vercel.app/",
   },
   {
     title: "SpeakGenie",
