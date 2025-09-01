@@ -12,7 +12,7 @@ const aiProjects: Project[] = [
     description: "An AI that helps you prepare for interviews by simulating real interview questions and providing feedback on your answers.",
     imageUrl: "/qa.png",
     imageHint: "abstract art poetry",
-    tags: ["GenAI", "NLP", "Python", "Gradio", "Gemini"],
+    tags: ["GenAI", "NLP", "NextJS", "TailwindCSS", "Gemini"],
     liveUrl: "https://ai-interview-eta-indol.vercel.app/",
   },
   {
