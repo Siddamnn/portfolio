@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from '@/components/theme-provider';
 import { BackgroundMusic } from '@/components/background-music';
+import { ChatbotWidget } from '@/components/chatbot-widget';
 
 export const metadata: Metadata = {
   title: "Welcome to Sid's",
@@ -31,6 +32,8 @@ export default function RootLayout({
             {children}
             <BackgroundMusic src="/background-music.mp3" />
             <Toaster />
+            {/* Chatbot lives on all pages; API key can be provided via NEXT_PUBLIC_GEMINI_API_KEY */}
+            <ChatbotWidget />
         </ThemeProvider>
       </body>
     </html>
