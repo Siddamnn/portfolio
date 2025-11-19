@@ -25,7 +25,7 @@ export function SiteLogo({ className, isHoverFlicker = false }: SiteLogoProps) {
     <div
       className={cn(
         "font-logo text-2xl font-bold text-[#ff007f]",
-        "border-2 border-[#ff007f] rounded-full p-2",
+        "border-2 border-[#ff007f] rounded-full p-2 inline-flex",
         isHoverFlicker ? "group-hover/footer:animate-flicker" : "animate-flicker",
         className
       )}

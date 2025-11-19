@@ -1,5 +1,4 @@
-import Image from 'next/image'
-import { Card, CardContent } from "@/components/ui/card"
+import TiltedCard from "@/components/ui/tilted-card"
 
 export function About() {
   return (
@@ -11,19 +10,25 @@ export function About() {
             I&apos;m Sid, a creative soul navigating the digital landscape where technology meets art. From crafting elegant frontend experiences and diving deep into the decentralized world of blockchain, to training AI models and penning starlit verses, I find joy in building beautiful and meaningful things. This is my stage, my neon dream, a collection of projects and poems from my journey so far.
           </p>
         </div>
-        <div className="flex justify-center">
-          <Card className="overflow-hidden shadow-2xl transition-transform duration-300 hover:scale-105 hover:shadow-primary/20 -rotate-2 hover:rotate-0">
-            <CardContent className="p-0">
-              <Image
-                src="/me.jpg"
-                alt="Sid silhouette against LA skyline"
-                width={600}
-                height={800}
-                className="w-full h-auto"
-                data-ai-hint="silhouette man los angeles skyline"
-              />
-            </CardContent>
-          </Card>
+        <div className="flex justify-center items-center">
+          <TiltedCard
+            imageSrc="/me.jpg"
+            altText="Sid silhouette against LA skyline"
+            containerHeight="400px"
+            containerWidth="300px"
+            imageHeight="400px"
+            imageWidth="300px"
+            rotateAmplitude={12}
+            scaleOnHover={1.1}
+            displayOverlayContent={true}
+            overlayContent={
+              <div className="w-[300px] h-[400px] flex items-end justify-start p-6">
+                <div className="bg-white/15 backdrop-blur-md border border-white/20 rounded-full px-5 py-1.5 shadow-lg">
+                  <h3 className="text-2xl font-headline font-bold text-white drop-shadow-lg">Sid</h3>
+                </div>
+              </div>
+            }
+          />
         </div>
       </div>
     </section>

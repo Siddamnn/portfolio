@@ -28,7 +28,7 @@ export function Projects({ id, title, projects }: ProjectsProps) {
       <div className="container mx-auto">
         <h2 className="text-4xl lg:text-5xl font-headline font-bold text-primary mb-12 text-center">{title}</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <Card key={project.title} className="flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
               <CardHeader className="p-0">
                 <div className="aspect-video relative">
@@ -36,6 +36,7 @@ export function Projects({ id, title, projects }: ProjectsProps) {
                     src={project.imageUrl}
                     alt={project.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover"
                     data-ai-hint={project.imageHint}
                   />

@@ -1,9 +1,15 @@
 import type {Metadata} from 'next';
+import { Literata } from 'next/font/google';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from '@/components/theme-provider';
 import { BackgroundMusic } from '@/components/background-music';
-import { ChatbotWidget } from '@/components/chatbot-widget';
+
+const literata = Literata({
+  subsets: ['latin'],
+  variable: '--font-literata',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "Welcome to Sid's",
@@ -17,12 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Literata&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased">
+      <body className={`${literata.variable} font-body antialiased`}>
         <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -32,8 +33,6 @@ export default function RootLayout({
             {children}
             <BackgroundMusic src="/background-music.mp3" />
             <Toaster />
-            {/* Chatbot lives on all pages; API key can be provided via NEXT_PUBLIC_GEMINI_API_KEY */}
-            <ChatbotWidget />
         </ThemeProvider>
       </body>
     </html>
