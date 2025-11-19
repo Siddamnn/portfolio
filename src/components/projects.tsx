@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { HoverButton } from "@/components/ui/hover-button"
 import { Badge } from "@/components/ui/badge"
 import { Github, Link as LinkIcon } from 'lucide-react'
 
@@ -54,18 +54,18 @@ export function Projects({ id, title, projects }: ProjectsProps) {
               </div>
               <CardFooter className="flex gap-2 bg-muted/50 p-4">
                 {project.liveUrl && (
-                  <Button asChild className="flex-1">
-                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                  <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <HoverButton className="w-full">
                       <LinkIcon className="mr-2 h-4 w-4" /> Live Demo
-                    </Link>
-                  </Button>
+                    </HoverButton>
+                  </Link>
                 )}
                 {project.repoUrl && (
-                  <Button variant="outline" asChild className="flex-1">
-                    <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer">
+                  <Link href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
+                    <HoverButton className="w-full">
                       <Github className="mr-2 h-4 w-4" /> GitHub
-                    </Link>
-                  </Button>
+                    </HoverButton>
+                  </Link>
                 )}
               </CardFooter>
             </Card>

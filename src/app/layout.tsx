@@ -4,7 +4,6 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from '@/components/theme-provider';
 import { BackgroundMusic } from '@/components/background-music';
-
 const literata = Literata({
   subsets: ['latin'],
   variable: '--font-literata',

@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button"
+import { HoverButton } from "@/components/ui/hover-button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Github, Linkedin, Instagram, Mail } from 'lucide-react'
@@ -21,7 +21,7 @@ export function Contact() {
             </div>
             <Textarea placeholder="Your Message" rows={6} aria-label="Your Message" />
             <div className="text-right">
-              <Button type="submit" size="lg">Send Message</Button>
+              <HoverButton type="submit">Send Message</HoverButton>
             </div>
           </form>
         </Card>

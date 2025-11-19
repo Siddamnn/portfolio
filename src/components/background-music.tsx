@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react'
 import { Play, Pause } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { HoverButton } from '@/components/ui/hover-button'
 import { cn } from '@/lib/utils'
 
 interface BackgroundMusicProps {
@@ -26,8 +26,8 @@ export function BackgroundMusic({ src, className }: BackgroundMusicProps) {
     const playAudio = async () => {
       try {
         await audio.play()
-      } catch (error) {
-        console.error('Auto-play failed:', error)
+      } catch {
+        // Autoplay prevented by browser policy - user needs to interact first
         setIsPlaying(false)
       }
     }
@@ -65,9 +65,7 @@ export function BackgroundMusic({ src, className }: BackgroundMusicProps) {
     <>
       <audio ref={audioRef} src={src} preload="metadata" />
       
-      <Button
-        size="sm"
-        variant="ghost"
+      <HoverButton
         onClick={togglePlay}
         className={cn(
           "fixed bottom-4 right-4 z-50 h-12 w-12 p-0 rounded-full",
@@ -81,7 +79,7 @@ export function BackgroundMusic({ src, className }: BackgroundMusicProps) {
         ) : (
           <Play className="h-5 w-5 text-[#ff007f]" />
         )}
-      </Button>
+      </HoverButton>
     </>
   )
 }
