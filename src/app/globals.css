@@ -4,47 +4,83 @@
 
 @layer base {
   :root {
-    --background: 270 27% 95%; /* desaturated purple */
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 282 70% 50%; /* deep violet */
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 248 39% 39%; /* blue-violet */
-    --accent-foreground: 0 0% 98%;
+    /* Pill specular — light mode: clean white glass */
+    --pill-highlight: rgba(255, 255, 255, 0.95);
+    --pill-hemisphere: rgba(255, 255, 255, 0.45);
+    --pill-gloss: rgba(255, 255, 255, 0.70);
+    --pill-inner-glow: rgba(255, 255, 255, 0.22);
+    --pill-inset-top: rgba(255, 255, 255, 0.80);
+
+    --background: 38 40% 94%;      /* warm parchment — club walls in daylight */
+    --foreground: 20 15% 15%;      /* deep warm charcoal */
+    --card: 38 30% 97%;            /* slightly lifted off-white */
+    --card-foreground: 20 15% 15%;
+    --popover: 38 30% 97%;
+    --popover-foreground: 20 15% 15%;
+    --primary: 35 80% 38%;         /* deep amber — aged brass, afternoon light */
+    --primary-foreground: 40 60% 95%;
+    --secondary: 38 20% 88%;
+    --secondary-foreground: 20 15% 25%;
+    --muted: 38 20% 88%;
+    --muted-foreground: 30 15% 50%;
+    --accent: 350 55% 35%;         /* burgundy — same velvet, daylight version */
+    --accent-foreground: 40 60% 95%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 282 70% 50%;
+    --border: 35 20% 82%;
+    --input: 35 20% 82%;
+    --ring: 35 80% 38%;
     --radius: 0.5rem;
   }
   .dark {
-    --background: 270 15% 15%; /* darker purple */
-    --foreground: 0 0% 98%;
-    --card: 270 10% 20%;
-    --card-foreground: 0 0% 98%;
-    --popover: 270 10% 10%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 282 70% 60%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 270 10% 25%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 270 10% 25%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 248 39% 55%;
-    --accent-foreground: 0 0% 98%;
+    /* Pill specular — dark mode: warm amber glass instead of cold white */
+    --pill-highlight: rgba(255, 200, 80, 0.22);
+    --pill-hemisphere: rgba(255, 190, 80, 0.10);
+    --pill-gloss: rgba(255, 200, 80, 0.18);
+    --pill-inner-glow: rgba(245, 158, 11, 0.08);
+    --pill-inset-top: rgba(255, 190, 80, 0.15);
+
+    --background: 25 12% 7%;       /* warm charcoal — jazz club walls at night */
+    --foreground: 40 60% 88%;      /* aged cream — not stark white */
+    --card: 25 10% 12%;            /* slightly lifted warm dark */
+    --card-foreground: 40 50% 90%;
+    --popover: 20 10% 9%;
+    --popover-foreground: 40 60% 88%;
+    --primary: 38 85% 55%;         /* amber gold — the stage light */
+    --primary-foreground: 20 15% 8%;
+    --secondary: 25 8% 18%;
+    --secondary-foreground: 40 40% 80%;
+    --muted: 25 8% 18%;
+    --muted-foreground: 35 20% 55%;
+    --accent: 350 55% 38%;         /* deep wine/burgundy — the velvet curtain */
+    --accent-foreground: 40 60% 88%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 270 10% 30%;
-    --input: 270 10% 30%;
-    --ring: 282 70% 60%;
+    --border: 25 10% 20%;
+    --input: 25 10% 20%;
+    --ring: 38 85% 55%;            /* amber focus ring */
+  }
+  .light {
+    --background: 38 40% 94%;
+    --foreground: 20 15% 15%;
+    --card: 38 30% 97%;
+    --card-foreground: 20 15% 15%;
+    --popover: 38 30% 97%;
+    --popover-foreground: 20 15% 15%;
+    --primary: 35 80% 38%;
+    --primary-foreground: 40 60% 95%;
+    --secondary: 38 20% 88%;
+    --secondary-foreground: 20 15% 25%;
+    --muted: 38 20% 88%;
+    --muted-foreground: 30 15% 50%;
+    --accent: 350 55% 35%;
+    --accent-foreground: 40 60% 95%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 35 20% 82%;
+    --input: 35 20% 82%;
+    --ring: 35 80% 38%;
+    --radius: 0.5rem;
   }
 }
 
@@ -57,6 +93,22 @@
   }
   body {
     @apply bg-background text-foreground;
+    position: relative;
+  }
+  /* Film grain — fixed overlay, cinematic jazz texture */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: overlay;
+  }
+  /* Thin amber separator between page sections */
+  section + section {
+    border-top: 1px solid hsl(var(--primary) / 0.15);
   }
 }
 
@@ -65,10 +117,10 @@
     0%, 18%, 22%, 25%, 53%, 57%, 100% {
       opacity: 1;
       text-shadow:
-        0 0 4px theme(colors.white),
-        0 0 11px #ff007f,
-        0 0 19px #ff007f,
-        0 0 40px #ff007f;
+        0 0 4px #fef3c7,
+        0 0 11px #f59e0b,
+        0 0 19px #f59e0b,
+        0 0 40px #d97706;
     }
     20%, 24%, 55% {
       opacity: 0.6;

@@ -70,14 +70,14 @@ export function BackgroundMusic({ src, className }: BackgroundMusicProps) {
         className={cn(
           "fixed bottom-4 right-4 z-50 h-12 w-12 p-0 rounded-full",
           "bg-background/90 backdrop-blur-sm border border-border shadow-lg",
-          "hover:bg-[#ff007f]/10 transition-all duration-300",
+          "hover:bg-[#f59e0b]/10 transition-all duration-300",
           className
         )}
       >
         {isPlaying ? (
-          <Pause className="h-5 w-5 text-[#ff007f]" />
+          <Pause className="h-5 w-5 text-[#f59e0b]" />
         ) : (
-          <Play className="h-5 w-5 text-[#ff007f]" />
+          <Play className="h-5 w-5 text-[#f59e0b]" />
         )}
       </HoverButton>
     </>

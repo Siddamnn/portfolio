@@ -1,19 +1,22 @@
 'use client';
 
+import { type CSSProperties, type MouseEvent, type ReactNode, useRef } from 'react';
+import Image from 'next/image';
 import type { SpringOptions } from 'framer-motion';
-import { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
+
+const MotionImage = motion(Image);
 
 interface TiltedCardProps {
   imageSrc: string;
   altText?: string;
-  containerHeight?: React.CSSProperties['height'];
-  containerWidth?: React.CSSProperties['width'];
-  imageHeight?: React.CSSProperties['height'];
-  imageWidth?: React.CSSProperties['width'];
+  containerHeight?: CSSProperties['height'];
+  containerWidth?: CSSProperties['width'];
+  imageHeight?: CSSProperties['height'];
+  imageWidth?: CSSProperties['width'];
   scaleOnHover?: number;
   rotateAmplitude?: number;
-  overlayContent?: React.ReactNode;
+  overlayContent?: ReactNode;
   displayOverlayContent?: boolean;
 }
 
@@ -36,28 +39,20 @@ export default function TiltedCard({
   displayOverlayContent = false
 }: TiltedCardProps) {
   const ref = useRef<HTMLElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
   const rotateX = useSpring(useMotionValue(0), springValues);
   const rotateY = useSpring(useMotionValue(0), springValues);
   const scale = useSpring(1, springValues);
   const opacity = useSpring(0);
 
-  function handleMouse(e: React.MouseEvent<HTMLElement>) {
+  function handleMouse(e: MouseEvent<HTMLElement>) {
     if (!ref.current) return;
 
     const rect = ref.current.getBoundingClientRect();
     const offsetX = e.clientX - rect.left - rect.width / 2;
     const offsetY = e.clientY - rect.top - rect.height / 2;
 
-    const rotationX = (offsetY / (rect.height / 2)) * -rotateAmplitude;
-    const rotationY = (offsetX / (rect.width / 2)) * rotateAmplitude;
-
-    rotateX.set(rotationX);
-    rotateY.set(rotationY);
-
-    x.set(e.clientX - rect.left);
-    y.set(e.clientY - rect.top);
+    rotateX.set((offsetY / (rect.height / 2)) * -rotateAmplitude);
+    rotateY.set((offsetX / (rect.width / 2)) * rotateAmplitude);
   }
 
   function handleMouseEnter() {
@@ -94,14 +89,12 @@ export default function TiltedCard({
           scale
         }}
       >
-        <motion.img
+        <MotionImage
           src={imageSrc}
           alt={altText}
-          className="absolute top-0 left-0 object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
-          style={{
-            width: imageWidth,
-            height: imageHeight
-          }}
+          fill
+          sizes="(max-width: 768px) 100vw, 300px"
+          className="object-cover rounded-[15px] will-change-transform [transform:translateZ(0)]"
         />
 
         {displayOverlayContent && overlayContent && (

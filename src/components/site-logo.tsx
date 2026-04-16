@@ -1,3 +1,4 @@
+import { type SVGProps } from 'react'
 import { cn } from "@/lib/utils"
 
 type SiteLogoProps = {
@@ -5,7 +6,7 @@ type SiteLogoProps = {
   isHoverFlicker?: boolean
 }
 
-const MusicNoteIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const MusicNoteIcon = (props: SVGProps<SVGSVGElement>) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-5 0 20 20"
@@ -24,7 +25,7 @@ export function SiteLogo({ className, isHoverFlicker = false }: SiteLogoProps) {
   return (
     <div
       className={cn(
-        "font-logo text-2xl font-bold text-[#ff007f]",
+        "font-logo text-2xl font-bold text-[#f59e0b]",
         "inline-flex",
         isHoverFlicker ? "group-hover/footer:animate-flicker" : "animate-flicker",
         className
@@ -32,7 +33,7 @@ export function SiteLogo({ className, isHoverFlicker = false }: SiteLogoProps) {
     >
       <div className="flex items-center text-stroke-pink uppercase italic px-2">
         <span>SID</span>
-        <MusicNoteIcon className="w-[0.7em] h-[0.55em] -ml-1 fill-[#ff007f] translate-y-[-0.4em]" />
+        <MusicNoteIcon className="w-[0.7em] h-[0.55em] -ml-1 fill-[#f59e0b] translate-y-[-0.4em]" />
         <span className="-ml-4">S</span>
       </div>
     </div>

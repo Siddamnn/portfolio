@@ -5,21 +5,27 @@ import { Projects, type Project } from "@/components/projects"
 import { Poems, type Poem } from "@/components/poems"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
+import {
+  NeuralWebSvg,
+  SoundWavesSvg,
+  FocusRingsSvg,
+  VinylRecordSvg,
+  RainyWindowSvg,
+  FlowDiagramSvg,
+} from "@/components/project-svgs"
 
 const aiProjects: Project[] = [
   {
     title: "Smart Interview Assistant",
     description: "An AI that helps you prepare for interviews by simulating real interview questions and providing feedback on your answers.",
-    imageUrl: "/qa.png",
-    imageHint: "abstract art poetry",
+    svgBackground: <NeuralWebSvg />,
     tags: ["GenAI", "NLP", "NextJS", "TailwindCSS", "Gemini"],
     liveUrl: "https://ai-interview-eta-indol.vercel.app/",
   },
   {
     title: "SpeakGenie",
     description: "An AI powered english language learning tool that provides personalized lessons and exercises.",
-    imageUrl: "/speakgenie.png",
-    imageHint: "speak genie",
+    svgBackground: <SoundWavesSvg />,
     tags: ["AI", "Language Learning", "Personalized"],
     liveUrl: "https://speak-genie-five.vercel.app/",
   },
@@ -29,8 +35,7 @@ const frontendProjects: Project[] = [
   {
     title: "Pamodoro Timer",
     description: "A minimalist Pomodoro timer and to-do list designed to help you cultivate focus and grow a virtual garden of delightful plants.",
-    imageUrl: "/pamodoro.png",
-    imageHint: "movie poster jazz",
+    svgBackground: <FocusRingsSvg />,
     tags: ["NextJS", "Typescript", "CSS"],
     liveUrl: "https://pamodoro-timer.vercel.app/",
     repoUrl: "https://github.com/Siddamnn/Pamodoro-timer",
@@ -38,8 +43,7 @@ const frontendProjects: Project[] = [
   {
     title: "Echoes of You",
     description: "A website which writes you a unique poem based on your spotify data. It uses the Spotify API to fetch your top tracks and artists, then generates a personalized poem.",
-    imageUrl: "/spotify.png",
-    imageHint: "spotify poem music",
+    svgBackground: <VinylRecordSvg />,
     tags: ["Next.js", "Typescript", "Tailwind CSS", "Spotify API"],
     liveUrl: "https://echoes-of-you.vercel.app/",
     repoUrl: "https://github.com/Siddamnn/Echoes-of-You",
@@ -47,15 +51,14 @@ const frontendProjects: Project[] = [
   {
     title: "Rainy Windows",
     description: "A simple soothing ambience generator that plays rain sounds and displays a calming rainy window animation. Perfect for relaxation or focus.",
-    imageUrl: "/rainy-windows.png",
-    imageHint: "rainy window ambience",
+    svgBackground: <RainyWindowSvg />,
     tags: ["Next.js", "React", "Typescript"],
     liveUrl: "https://rainy-windows-dashboard.vercel.app/",
-  },{
+  },
+  {
     title: "React-Flow",
     description: "A simple tool to make flow diagrams using React and D3.js.",
-    imageUrl: "/react-flow.png",
-    imageHint: "react flow diagram",
+    svgBackground: <FlowDiagramSvg />,
     tags: ["Next.js", "React", "Typescript"],
     liveUrl: "https://react-flow-ebon.vercel.app/",
   },

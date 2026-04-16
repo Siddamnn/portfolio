@@ -112,8 +112,8 @@ const HoverButton = React.forwardRef<HTMLButtonElement, HoverButtonProps>(
         {...props}
         style={{
           // @ts-ignore
-          "--circle-start": "var(--tw-gradient-from, #a0d9f8)",
-          "--circle-end": "var(--tw-gradient-to, #3a5bbf)",
+          "--circle-start": "var(--tw-gradient-from, #fcd34d)",
+          "--circle-end": "var(--tw-gradient-to, #b45309)",
           ...props.style
         }}
       >

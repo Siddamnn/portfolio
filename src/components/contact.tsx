@@ -28,10 +28,22 @@ export function Contact() {
         <div className="mt-16">
           <p className="text-muted-foreground mb-4">Or connect with me here:</p>
           <div className="flex justify-center gap-6">
-            <Link href="https://www.linkedin.com/in/siddharth-bhardwaj-tug/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors"><Linkedin size={28} /></Link>
-            <Link href="https://github.com/Siddamnn" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-primary transition-colors"><Github size={28} /></Link>
-            <Link href="https://www.instagram.com/_siddamn/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-muted-foreground hover:text-primary transition-colors"><Instagram size={28} /></Link>
-            <Link href="mailto:siddharth0996@outlook.com" aria-label="Email" className="text-muted-foreground hover:text-primary transition-colors"><Mail size={28} /></Link>
+            {[
+              { href: "https://www.linkedin.com/in/siddharth-bhardwaj-tug/", label: "LinkedIn", icon: <Linkedin size={28} />, external: true },
+              { href: "https://github.com/Siddamnn", label: "GitHub", icon: <Github size={28} />, external: true },
+              { href: "https://www.instagram.com/_siddamn/", label: "Instagram", icon: <Instagram size={28} />, external: true },
+              { href: "mailto:siddharth0996@outlook.com", label: "Email", icon: <Mail size={28} />, external: false },
+            ].map(({ href, label, icon, external }) => (
+              <Link
+                key={label}
+                href={href}
+                aria-label={label}
+                {...(external && { target: "_blank", rel: "noopener noreferrer" })}
+                className="text-muted-foreground hover:text-primary transition-colors"
+              >
+                {icon}
+              </Link>
+            ))}
           </div>
         </div>
       </div>
