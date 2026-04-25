@@ -17,9 +17,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-literata)', 'serif'],
-        headline: ['var(--font-literata)', 'serif'],
-        code: ['monospace'],
+        body: ['var(--font-inter-tight)', 'Inter', 'system-ui', 'sans-serif'],
+        headline: ['var(--font-anton)', 'Bebas Neue', 'Impact', 'sans-serif'],
+        serif: ['var(--font-fraunces)', 'Times New Roman', 'serif'],
+        mono: ['var(--font-jetbrains-mono)', 'ui-monospace', 'monospace'],
+        code: ['var(--font-jetbrains-mono)', 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -102,5 +104,5 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [],
 } satisfies Config;

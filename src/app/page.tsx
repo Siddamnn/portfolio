@@ -1,99 +1,165 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
+import { Marquee } from "@/components/marquee"
 import { About } from "@/components/about"
 import { Projects, type Project } from "@/components/projects"
 import { Poems, type Poem } from "@/components/poems"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
-import {
-  NeuralWebSvg,
-  SoundWavesSvg,
-  FocusRingsSvg,
-  VinylRecordSvg,
-  RainyWindowSvg,
-  FlowDiagramSvg,
-} from "@/components/project-svgs"
 
-const aiProjects: Project[] = [
+const projects: Project[] = [
   {
-    title: "Smart Interview Assistant",
-    description: "An AI that helps you prepare for interviews by simulating real interview questions and providing feedback on your answers.",
-    svgBackground: <NeuralWebSvg />,
-    tags: ["GenAI", "NLP", "NextJS", "TailwindCSS", "Gemini"],
+    id: "interview",
+    num: "01",
+    title: "Smart Interview\nAssistant",
+    blurb:
+      "An AI that listens, transcribes, and whispers context-aware suggestions — turning every conversation into a calmer one.",
+    tags: ["GenAI", "NLP", "Next.js", "Gemini"],
+    visual: "orb",
+    kind: "ai",
+    featured: true,
     liveUrl: "https://ai-interview-eta-indol.vercel.app/",
   },
   {
+    id: "speakgenie",
+    num: "02",
     title: "SpeakGenie",
-    description: "An AI powered english language learning tool that provides personalized lessons and exercises.",
-    svgBackground: <SoundWavesSvg />,
-    tags: ["AI", "Language Learning", "Personalized"],
+    blurb:
+      "Personalized language learning that listens like a human, corrects like a friend, and remembers like a coach.",
+    tags: ["AI", "Language", "Voice"],
+    visual: "mic",
+    kind: "ai",
     liveUrl: "https://speak-genie-five.vercel.app/",
   },
-]
-
-const frontendProjects: Project[] = [
   {
-    title: "Pamodoro Timer",
-    description: "A minimalist Pomodoro timer and to-do list designed to help you cultivate focus and grow a virtual garden of delightful plants.",
-    svgBackground: <FocusRingsSvg />,
-    tags: ["NextJS", "Typescript", "CSS"],
+    id: "pamodoro",
+    num: "03",
+    title: "Pamodoro",
+    blurb:
+      "A focus timer with a poet's restraint — twenty-five minutes of stillness, five minutes of breath.",
+    tags: ["Next.js", "TypeScript", "CSS"],
+    visual: "clock",
+    kind: "frontend",
     liveUrl: "https://pamodoro-timer.vercel.app/",
     repoUrl: "https://github.com/Siddamnn/Pamodoro-timer",
   },
   {
-    title: "Echoes of You",
-    description: "A website which writes you a unique poem based on your spotify data. It uses the Spotify API to fetch your top tracks and artists, then generates a personalized poem.",
-    svgBackground: <VinylRecordSvg />,
-    tags: ["Next.js", "Typescript", "Tailwind CSS", "Spotify API"],
+    id: "echoes",
+    num: "04",
+    title: "Echoes\nof You",
+    blurb:
+      "A confessional little app that listens back — voice memos rewritten as quiet, looping verses.",
+    tags: ["Next.js", "Tailwind", "Spotify API"],
+    visual: "waves",
+    kind: "frontend",
     liveUrl: "https://echoes-of-you.vercel.app/",
     repoUrl: "https://github.com/Siddamnn/Echoes-of-You",
   },
   {
-    title: "Rainy Windows",
-    description: "A simple soothing ambience generator that plays rain sounds and displays a calming rainy window animation. Perfect for relaxation or focus.",
-    svgBackground: <RainyWindowSvg />,
-    tags: ["Next.js", "React", "Typescript"],
+    id: "rainy",
+    num: "05",
+    title: "Rainy\nWindows",
+    blurb:
+      "Lo-fi rain on glass, generative and gentle. A browser tab to put the world on pause.",
+    tags: ["React", "Next.js", "TypeScript"],
+    visual: "rain",
+    kind: "frontend",
     liveUrl: "https://rainy-windows-dashboard.vercel.app/",
   },
   {
+    id: "flow",
+    num: "06",
     title: "React-Flow",
-    description: "A simple tool to make flow diagrams using React and D3.js.",
-    svgBackground: <FlowDiagramSvg />,
-    tags: ["Next.js", "React", "Typescript"],
+    blurb:
+      "Node-based diagrams that snap, drag, and connect. Logic made visible, made beautiful.",
+    tags: ["React", "TypeScript", "SVG"],
+    visual: "flow",
+    kind: "frontend",
     liveUrl: "https://react-flow-ebon.vercel.app/",
   },
 ]
 
 const poems: Poem[] = [
-    {
-      title: "Neon Heartbeat",
-      text: "The city breathes in shades of pink and blue,\nA million stories in the evening dew.\nEach window, a screen, a fleeting scene,\nIn this river of light, this urban dream."
-    },
-    {
-      title: "Starlight on Sunset",
-      text: "Asphalt veins under a violet sky,\nWhere dreams take flight and ambitions fly.\nThe day descends, a cinematic fade,\nA promise whispered, a memory made."
-    },
-    {
-      title: "Echoes in the Canyon",
-      text: "The concrete whispers tales of old,\nOf silver screens and stories told.\nA lonely saxophone begins to weep,\nSecrets the silent, sleeping city keep."
-    },
-]
+  {
+    id: "neon",
+    num: "I",
+    title: "Neon Heartbeat",
+    preview:
+      "The night hums in fluorescent breath, every street a half-finished sentence, every window a paragraph aglow…",
+    body: `The night hums in fluorescent breath,
+every street a half-finished sentence,
+every window a paragraph aglow.
 
+I wear the dark like a borrowed jacket —
+two sizes too large, the pockets full
+of someone else's loose change and longing.
+
+A slow neon heartbeat keeps the time,
+out of step with the clocks I own,
+in tune with the ones I don't.
+
+I am twenty-something and lit from within,
+a small lamp on a long quiet road,
+flickering, flickering, alive.`,
+  },
+  {
+    id: "letters",
+    num: "II",
+    title: "Letters to No One",
+    preview:
+      "There is a kind of ache the late hour sings — gentle, dim-lit, half-remembered, like a love letter from no one in particular…",
+    body: `There is a kind of ache the late hour sings —
+gentle, dim-lit, half-remembered,
+like a love letter from no one in particular.
+
+The rooftops hold their breath above the noise,
+the trees lean in, listening,
+the moon a coin pressed flat against the dark.
+
+You are somewhere in this map,
+a pin I keep meaning to drop,
+a route I keep almost taking.
+
+Night is just a verb here.
+We do it together, even when we are alone.`,
+  },
+  {
+    id: "echoes-poem",
+    num: "III",
+    title: "Echoes",
+    preview:
+      "I called your name once, into the dark, and the dark — being polite — gave it back to me, three times softer…",
+    body: `I called your name once, into the dark,
+and the dark — being polite —
+gave it back to me, three times softer.
+
+Now I keep the syllables in my coat pocket
+next to the ticket stub from a film
+neither of us finished watching.
+
+The dark does this for everyone, I'm told.
+Holds onto the things we couldn't carry,
+hums them back when the wind is right.
+
+I am learning the difference
+between a place that listens
+and a place that simply doesn't argue.`,
+  },
+]
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-background">
+    <>
       <Header />
-      <main className="flex-grow">
+      <main>
         <Hero />
+        <Marquee />
         <About />
-        <Projects id="ai-projects" title="AI Projects" projects={aiProjects} />
-        
-        <Projects id="frontend-projects" title="Frontend Projects" projects={frontendProjects} />
-        <Poems poems={poems}/>
+        <Projects projects={projects} />
+        <Poems poems={poems} />
         <Contact />
       </main>
       <Footer />
-    </div>
+    </>
   )
 }

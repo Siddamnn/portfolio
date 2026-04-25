@@ -1,189 +1,112 @@
-# 🎵 Sid's Portfolio - Neon Dreams Creator
+# Sid's Starlit Stage
 
-A modern, interactive portfolio website showcasing creative work with a unique neon aesthetic and immersive background music experience.
+A neon-noir / cinematic portfolio — frontend, AI, blockchain, and the occasional poem written under late-night fluorescents.
 
-## ✨ Features
+Live at **[siddamn.dev](https://siddamn.dev)**.
 
-- **🎨 Neon Design Theme** - Cyberpunk-inspired UI with vibrant pink (#ff007f) accents
-- **🎵 Background Music Player** - Auto-playing looped background music with play/pause controls
-- **🌓 Dark/Light Mode Toggle** - Seamless theme switching with system preference support
-- **📱 Fully Responsive** - Mobile-first design that works on all devices
-- **🎭 Interactive Components** - Smooth animations and hover effects
-- **📝 Multi-Section Portfolio** - Hero, About, Projects, Poems, and Contact sections
-- **🎸 Custom Site Logo** - Unique "SIDS" logo with musical note integration
-- **⚡ Performance Optimized** - Built with Next.js 15 and Turbopack for lightning-fast performance
+## Sections
 
-## 🚀 Tech Stack
+- **Hero** — Anton display title with italic Fraunces accent, full-bleed sky gradient, drifting stars, and an SVG city skyline with lit windows.
+- **Marquee** — scrolling cinematic strip under the hero.
+- **About** — split layout with a corner-bracketed portrait card.
+- **Projects** — filterable grid (All / AI / Frontend) with a featured-first layout. Each card has its own bespoke CSS+SVG visual: a live Pomodoro clock, an audio-bar visualizer, falling rain, a node-graph, a glowing mic, and an AI orb.
+- **Poems** — three card teasers that open into a focused modal with the full verse. `Esc` to close.
+- **Contact** — CTA and socials.
 
-### Core Framework
-- **Next.js 15** - React framework with App Router
-- **React 18** - Latest React with concurrent features
-- **TypeScript** - Type-safe development experience
+## Tech stack
 
-### Styling & UI
-- **Tailwind CSS** - Utility-first CSS framework
-- **Radix UI** - Headless UI components for accessibility
-- **Lucide React** - Beautiful, customizable icons
-- **next-themes** - Theme management for dark/light modes
+- **Next.js 16** (App Router) with Turbopack
+- **React 18** + **TypeScript** (strict)
+- **Tailwind CSS 3** for the bridge tokens; the rest is hand-rolled CSS in `globals.css` (~1000 lines, scoped to the design's class names)
+- **Google Fonts** via `next/font/google`: **Anton** (display), **Fraunces** (italic accent + body serif), **Inter Tight** (body sans), **JetBrains Mono** (eyebrow / mono detail)
+- **Lucide React** for icons (Menu, Play, Pause)
 
-### Development Tools
-- **Turbopack** - Ultra-fast bundler for development
-- **ESLint** - Code linting and formatting
-- **PostCSS** - CSS processing and optimization
+No theme provider, no dark/light toggle — the design is dark-only by intent. No Radix primitives, no framer-motion: every animation is CSS keyframes.
 
-
-## 🛠️ Installation & Setup
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Siddamnn/portfolio.git
-   cd portfolio
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Add your background music**
-   - Place your music file as `background-music.mp3` in the `public/` directory
-   - Supported formats: MP3, WAV, OGG
-
-4. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-5. **Open your browser**
-   - Navigate to `http://localhost:9002`
-   - The website will auto-reload on file changes
-
-## 🎵 Background Music Setup
-
-The website features an immersive background music experience:
-
-- **Auto-play**: Music starts automatically when the site loads (subject to browser policies)
-- **Loop**: Continuously plays in the background
-- **Volume**: Set to 30% for comfortable listening
-- **Controls**: Floating play/pause button in the bottom-right corner
-- **Persistent**: Continues playing across page navigation
-
-To customize:
-1. Replace `public/background-music.mp3` with your audio file
-2. Adjust volume in `src/components/background-music.tsx`
-3. Modify the control button styling as needed
-
-## 📁 Project Structure
+## Project structure
 
 ```
 portfolio/
-├── public/                 # Static assets
-│   ├── background-music.mp3  # Background music file
-│   ├── bg.png               # Background images
-│   └── me.jpg              # Profile photo
+├── public/
+│   ├── background-music.mp3
+│   └── me.jpg
 ├── src/
-│   ├── app/                # Next.js App Router
-│   │   ├── layout.tsx      # Root layout with providers
-│   │   ├── page.tsx        # Home page
-│   │   └── globals.css     # Global styles
-│   ├── components/         # React components
-│   │   ├── ui/            # Reusable UI components (Radix)
-│   │   ├── background-music.tsx  # Music player
-│   │   ├── hero.tsx       # Hero section
-│   │   ├── about.tsx      # About section
-│   │   ├── projects.tsx   # Projects showcase
-│   │   ├── poems.tsx      # Creative writing
-│   │   ├── contact.tsx    # Contact form
-│   │   ├── site-logo.tsx  # Custom logo component
-│   │   └── theme-provider.tsx  # Theme management
-│   ├── hooks/             # Custom React hooks
-│   └── lib/               # Utility functions
-├── tailwind.config.ts     # Tailwind configuration
-├── next.config.ts         # Next.js configuration
-└── package.json          # Dependencies and scripts
+│   ├── app/
+│   │   ├── layout.tsx        # font setup + background music
+│   │   ├── page.tsx          # project + poem data, section composition
+│   │   └── globals.css       # design system + section styles
+│   └── components/
+│       ├── header.tsx        # mix-blend-difference nav + mobile menu
+│       ├── hero.tsx          # sky/stars/skyline + display title
+│       ├── marquee.tsx       # scrolling strip
+│       ├── about.tsx         # split layout + portrait card
+│       ├── projects.tsx      # filterable grid + per-project CSS visuals
+│       ├── poems.tsx         # cards + Esc-dismissible modal
+│       ├── contact.tsx       # CTA + socials
+│       ├── footer.tsx
+│       ├── background-music.tsx
+│       └── ui/hover-button.tsx
+├── tailwind.config.ts
+├── next.config.ts
+└── package.json
 ```
 
-## 🎨 Design System
+## Setup
 
-### Colors
-- **Primary**: `#ff007f` (Neon Pink)
-- **Background**: Dynamic based on theme
-- **Text**: High contrast for accessibility
-
-### Typography
-- **Logo Font**: Custom "Literata" font
-- **Body Font**: System font stack for performance
-
-### Components
-- Consistent spacing using Tailwind's scale
-- Rounded corners and subtle shadows
-- Smooth transitions and animations
-- Accessible color contrast ratios
-
-## 🚀 Available Scripts
+Requires **Node 20+** (Next 16 minimum).
 
 ```bash
-# Development with Turbopack (fast refresh)
+git clone https://github.com/Siddamnn/portfolio.git
+cd portfolio
+npm install
 npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm start
 ```
 
-## 🔧 Customization
+Open [http://localhost:9002](http://localhost:9002).
 
-### Changing the Color Theme
-1. Update the primary color in `tailwind.config.ts`
-2. Modify CSS custom properties in `globals.css`
-3. Update component-specific colors in TSX files
+## Scripts
 
-### Adding New Sections
-1. Create a new component in `src/components/`
-2. Import and use in `src/app/page.tsx`
-3. Add navigation links in the header component
+```bash
+npm run dev         # turbopack dev server on :9002
+npm run build       # production build
+npm start           # serve production build
+npm run typecheck   # tsc --noEmit
+```
 
-### Modifying the Music Player
-- **Volume**: Adjust `audio.volume` in `background-music.tsx`
-- **Position**: Modify the `fixed` positioning classes
-- **Styling**: Update the button classes and icon components
+## Background music
 
-## 🌐 Deployment
+`<BackgroundMusic />` in `src/app/layout.tsx` loops `public/background-music.mp3` at 30% volume with a play/pause control fixed bottom-right. Auto-play attempts to start; if the browser blocks it, the user clicks the button to start.
 
-This project is optimized for deployment on:
-- **Vercel** (Recommended for Next.js)
-- **Netlify**
-- **Firebase Hosting**
-- **GitHub Pages** (with static export)
+To change the track: replace `public/background-music.mp3`. To change the volume: edit `audio.volume` in `src/components/background-music.tsx`.
 
-### Deploy to Vercel
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy automatically with zero configuration
+## Design tokens
 
-## 🎯 Browser Support
+CSS custom properties in `globals.css`:
 
-- **Modern browsers**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
-- **Audio support**: All modern browsers with HTML5 audio
-- **Responsive design**: Works on mobile, tablet, and desktop
+| Token | Value | Where it shows |
+|---|---|---|
+| `--neon` | `#ff2d8b` | hero accent, brand dot, project glow A |
+| `--neon-2` | `#00e5ff` | about italic accent, contact h2, project glow B |
+| `--neon-3` | `#ffb84d` | sodium-lamp amber (mic, lit windows, Pomodoro clock) |
+| `--neon-violet` | `#9b5cff` | poems accent, flow diagram nodes |
+| `--ink` | `#07060d` | page background |
+| `--paper` | `#f5efe6` | foreground text |
+| `--paper-dim` | `#cdc6bb` | secondary text |
+| `--maxw` | `1440px` | content section max-width |
 
+Font stacks live on `body` (so they share the scope where `next/font` injects its `--font-*` vars):
 
-## 🤝 Contributing
+```css
+--ff-display: var(--font-anton), "Bebas Neue", Impact, sans-serif;
+--ff-serif:   var(--font-fraunces), "Times New Roman", serif;
+--ff-mono:    var(--font-jetbrains-mono), ui-monospace, monospace;
+--ff-sans:    var(--font-inter-tight), "Inter", system-ui, sans-serif;
+```
 
-1. Fork the project
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+## Deployment
 
-## 📞 Contact
+Optimized for **Vercel**: push to GitHub, connect the repo, ship. No env vars required.
 
-**Sid** - Creator of Neon Dreams
-- GitHub: [@Siddamnn](https://github.com/Siddamnn)
-- Portfolio: [Welocome to Sid's](https://www.siddamn.dev)
+## Contact
 
----
-
-*Built with ❤️ and lots of ☕ by Sid*
+**Sid** — [siddamn.dev](https://siddamn.dev) · [GitHub @Siddamnn](https://github.com/Siddamnn) · [LinkedIn](https://www.linkedin.com/in/siddharth-bhardwaj-tug/)

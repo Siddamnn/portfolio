@@ -1,169 +1,240 @@
 "use client"
 
-import { useState, type ReactNode } from 'react'
-import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Badge } from "@/components/ui/badge"
-import { ExternalLink, Github } from 'lucide-react'
+import { useEffect, useState } from "react"
+
+export type ProjectVisualKind = "orb" | "mic" | "clock" | "waves" | "rain" | "flow"
+export type ProjectKind = "ai" | "frontend"
+type Filter = "all" | ProjectKind
+type LayoutClass = "featured" | "span6" | undefined
 
 export type Project = {
+  id: string
+  num: string
   title: string
-  description: string
-  svgBackground?: ReactNode
+  blurb: string
   tags: string[]
+  visual: ProjectVisualKind
+  kind: ProjectKind
+  featured?: boolean
   liveUrl?: string
   repoUrl?: string
 }
 
-type ProjectsProps = {
-  id: string
-  title: string
-  projects: Project[]
+function ClockVisual() {
+  const [time, setTime] = useState("25:00")
+  useEffect(() => {
+    let s = 25 * 60
+    const id = setInterval(() => {
+      s = s > 0 ? s - 1 : 25 * 60
+      const m = String(Math.floor(s / 60)).padStart(2, "0")
+      const ss = String(s % 60).padStart(2, "0")
+      setTime(`${m}:${ss}`)
+    }, 1000)
+    return () => clearInterval(id)
+  }, [])
+  return <div className="viz-clock">{time}</div>
 }
 
-function ProjectRow({
-  project,
-  index,
-  hoveredIndex,
-  setHoveredIndex,
-}: {
-  project: Project
-  index: number
-  hoveredIndex: number | null
-  setHoveredIndex: (i: number | null) => void
-}) {
-  const isHovered = hoveredIndex === index
-  const isOtherHovered = hoveredIndex !== null && hoveredIndex !== index
-
+function WavesVisual() {
+  const [bars, setBars] = useState<{ h: number; delay: number; duration: number }[]>([])
+  useEffect(() => {
+    setBars(
+      Array.from({ length: 40 }, (_, i) => ({
+        h: 60 + Math.sin(i * 0.45) * 25 + Math.random() * 15,
+        delay: -Math.random() * 1.6,
+        duration: 0.6 + Math.random() * 0.6,
+      })),
+    )
+  }, [])
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5, delay: index * 0.07, ease: 'easeOut' }}
-    >
-      <motion.div
-        className="relative border-b border-primary/15 overflow-hidden cursor-pointer"
-        onHoverStart={() => setHoveredIndex(index)}
-        onHoverEnd={() => setHoveredIndex(null)}
-        animate={{ opacity: isOtherHovered ? 0.2 : 1 }}
-        transition={{ duration: 0.35, ease: 'easeOut' }}
-      >
-        <motion.div
-          className="absolute left-0 inset-y-0 bg-primary z-20"
-          animate={{ width: isHovered ? '3px' : '0px' }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
+    <div className="viz-waves">
+      {bars.map((b, i) => (
+        <span
+          key={i}
+          style={{
+            height: `${b.h}%`,
+            animationDelay: `${b.delay}s`,
+            animationDuration: `${b.duration}s`,
+          }}
         />
-
-        <motion.div
-          className="absolute inset-0 z-0"
-          animate={{ clipPath: isHovered ? 'inset(0 0% 0 0)' : 'inset(0 100% 0 0)' }}
-          transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
-        >
-          {project.svgBackground}
-          <div className="absolute inset-0 bg-gradient-to-r from-background/40 via-background/65 to-background/88" />
-        </motion.div>
-
-        <div className="relative z-10 flex items-center gap-6 lg:gap-10 px-8 lg:px-10 py-8 lg:py-10">
-          <span className="font-mono text-xs font-bold text-primary/40 w-8 shrink-0 select-none">
-            {String(index + 1).padStart(2, '0')}
-          </span>
-
-          <div className="flex-1 min-w-0">
-            <motion.h3
-              className="font-headline font-bold text-foreground leading-none text-2xl lg:text-4xl"
-              animate={{ x: isHovered ? 8 : 0 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-            >
-              {project.title}
-            </motion.h3>
-            <AnimatePresence>
-              {isHovered && (
-                <motion.p
-                  key="desc"
-                  initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                  animate={{ opacity: 1, height: 'auto', marginTop: 10 }}
-                  exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                  transition={{ duration: 0.3, ease: 'easeOut' }}
-                  className="text-sm text-muted-foreground max-w-lg overflow-hidden"
-                >
-                  {project.description}
-                </motion.p>
-              )}
-            </AnimatePresence>
-          </div>
-
-          <div className="hidden lg:flex gap-2 flex-wrap justify-end shrink-0 max-w-xs">
-            {project.tags.slice(0, 3).map(tag => (
-              <Badge key={tag} variant="secondary" className="text-xs font-mono">
-                {tag}
-              </Badge>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-3 shrink-0">
-            {project.liveUrl && (
-              <Link
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={e => e.stopPropagation()}
-                className="text-muted-foreground hover:text-primary transition-colors duration-200"
-              >
-                <ExternalLink className="h-4 w-4 lg:h-5 lg:w-5" />
-              </Link>
-            )}
-            {project.repoUrl && (
-              <Link
-                href={project.repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={e => e.stopPropagation()}
-                className="text-muted-foreground hover:text-primary transition-colors duration-200"
-              >
-                <Github className="h-4 w-4 lg:h-5 lg:w-5" />
-              </Link>
-            )}
-            <motion.span
-              className="text-primary text-lg select-none"
-              animate={{ x: isHovered ? 6 : 0, opacity: isHovered ? 1 : 0.3 }}
-              transition={{ duration: 0.25 }}
-            >
-              →
-            </motion.span>
-          </div>
-        </div>
-      </motion.div>
-    </motion.div>
+      ))}
+    </div>
   )
 }
 
-export function Projects({ id, title, projects }: ProjectsProps) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+function FlowVisual() {
+  const nodes: [number, number, string][] = [
+    [30, 30, "#9b5cff"],
+    [100, 70, "#ff2d8b"],
+    [170, 110, "#9b5cff"],
+    [170, 30, "#00e5ff"],
+  ]
+  return (
+    <svg viewBox="0 0 200 140" className="viz-flow-svg">
+      <defs>
+        <filter id="proj-flow-glow">
+          <feGaussianBlur stdDeviation="2" result="b" />
+          <feMerge>
+            <feMergeNode in="b" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <path
+        d="M 30 30 Q 80 30, 100 70 T 170 110"
+        stroke="#9b5cff"
+        strokeWidth="1.5"
+        fill="none"
+        filter="url(#proj-flow-glow)"
+      />
+      <path
+        d="M 30 30 Q 80 30, 100 70 T 170 30"
+        stroke="#00e5ff"
+        strokeWidth="1.5"
+        fill="none"
+        opacity="0.7"
+      />
+      {nodes.map(([x, y, c], i) => (
+        <g key={i}>
+          <rect
+            x={x - 14}
+            y={y - 9}
+            width="28"
+            height="18"
+            rx="3"
+            fill="#0d0b18"
+            stroke={c}
+            strokeWidth="1.2"
+            filter="url(#proj-flow-glow)"
+          />
+          <circle cx={x - 14} cy={y} r="2" fill={c} />
+          <circle cx={x + 14} cy={y} r="2" fill={c} />
+        </g>
+      ))}
+    </svg>
+  )
+}
+
+function VisualInner({ kind }: { kind: ProjectVisualKind }) {
+  switch (kind) {
+    case "orb":
+      return (
+        <>
+          <div className="viz-rings" />
+          <div className="viz-orb" />
+        </>
+      )
+    case "mic":
+      return <div className="viz-mic" />
+    case "clock":
+      return <ClockVisual />
+    case "waves":
+      return <WavesVisual />
+    case "rain":
+      return <div className="viz-rain" />
+    case "flow":
+      return <FlowVisual />
+  }
+}
+
+function ProjectVisual({ kind }: { kind: ProjectVisualKind }) {
+  return (
+    <>
+      <div className="viz-grid" />
+      <VisualInner kind={kind} />
+    </>
+  )
+}
+
+function layoutFor(index: number, total: number): LayoutClass {
+  if (index === 0) return "featured"
+  if (index === total - 1 && (total - 1) % 3 === 1) return "span6"
+  return undefined
+}
+
+function ProjectCard({ p, layout }: { p: Project; layout: LayoutClass }) {
+  const href = p.liveUrl || p.repoUrl || "#"
+  const external = Boolean(p.liveUrl || p.repoUrl)
+  const className = layout ? `project-card ${layout}` : "project-card"
+  return (
+    <a
+      href={href}
+      className={className}
+      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+    >
+      <div className="glow a" />
+      <div className="glow b" />
+      <div className="project-num">
+        <span>
+          {p.num} / {p.featured ? "FEATURED" : "PROJECT"}
+        </span>
+        <span className="arrow">↗</span>
+      </div>
+      <div className="visual">
+        <ProjectVisual kind={p.visual} />
+      </div>
+      <h3 className="project-title">{p.title}</h3>
+      <p className="blurb">{p.blurb}</p>
+      <div className="tags">
+        {p.tags.map((t) => (
+          <span key={t} className="tag">
+            {t}
+          </span>
+        ))}
+      </div>
+    </a>
+  )
+}
+
+export function Projects({ projects }: { projects: Project[] }) {
+  const [filter, setFilter] = useState<Filter>("all")
+
+  const counts = projects.reduce(
+    (acc, p) => {
+      acc[p.kind]++
+      return acc
+    },
+    { ai: 0, frontend: 0 } as Record<ProjectKind, number>,
+  )
+
+  const visible = filter === "all" ? projects : projects.filter((p) => p.kind === filter)
+
+  const filters: { id: Filter; label: string; n: number }[] = [
+    { id: "all", label: "All", n: projects.length },
+    { id: "ai", label: "AI", n: counts.ai },
+    { id: "frontend", label: "Frontend", n: counts.frontend },
+  ]
 
   return (
-    <section id={id} className="py-20 lg:py-32">
-      <div className="container mx-auto">
-        <motion.h2
-          className="text-4xl lg:text-5xl font-headline font-bold text-primary mb-12 px-8 lg:px-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
-        >
-          {title}
-        </motion.h2>
-        <div className="border-t border-primary/15">
-          {projects.map((project, i) => (
-            <ProjectRow
-              key={project.title}
-              project={project}
-              index={i}
-              hoveredIndex={hoveredIndex}
-              setHoveredIndex={setHoveredIndex}
-            />
+    <section className="wrap" id="projects">
+      <div className="section-rule">
+        <span className="num">/02</span>
+        <span>Selected Work</span>
+        <span className="line" />
+        <span>2023 — 2026</span>
+      </div>
+      <div className="projects-head">
+        <h2>
+          Things I&apos;ve<br />
+          <span className="it">made &amp;</span> shipped.
+        </h2>
+        <div className="filter-bar" role="tablist">
+          {filters.map((t) => (
+            <button
+              key={t.id}
+              className={filter === t.id ? "active" : ""}
+              onClick={() => setFilter(t.id)}
+            >
+              {t.label}
+              <span className="count">{String(t.n).padStart(2, "0")}</span>
+            </button>
           ))}
         </div>
+      </div>
+      <div className="projects-grid">
+        {visible.map((p, i) => (
+          <ProjectCard key={p.id} p={p} layout={layoutFor(i, visible.length)} />
+        ))}
       </div>
     </section>
   )
