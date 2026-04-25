@@ -54,7 +54,7 @@ export function Hero() {
           </div>
           <div className="col">
             <span className="k">Index</span>
-            06 Projects · 03 Verses · ∞ Ideas
+            06 Projects · 04 Verses · ∞ Ideas
           </div>
         </div>
         <h1 className="hero-title">

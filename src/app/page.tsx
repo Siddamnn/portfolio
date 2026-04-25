@@ -81,69 +81,109 @@ const projects: Project[] = [
 
 const poems: Poem[] = [
   {
-    id: "neon",
+    id: "free",
     num: "I",
-    title: "Neon Heartbeat",
+    title: "Free",
     preview:
-      "The night hums in fluorescent breath, every street a half-finished sentence, every window a paragraph aglow…",
-    body: `The night hums in fluorescent breath,
-every street a half-finished sentence,
-every window a paragraph aglow.
+      "The cold wind on my face, the star studded sky. The endless broad roads. The bright street lights…",
+    body: `The cold wind on my face,
+the star studded sky.
+The endless broad roads.
+The bright street lights.
 
-I wear the dark like a borrowed jacket —
-two sizes too large, the pockets full
-of someone else's loose change and longing.
+It is freedom that I yearn.
+Like the birds I idolize.
+The heart beats to drums of liberation.
+I dance with the mice.
 
-A slow neon heartbeat keeps the time,
-out of step with the clocks I own,
-in tune with the ones I don't.
+It is going to be hard.
+But it is going to be free.
+It will not be much.
+But I will be free.
 
-I am twenty-something and lit from within,
-a small lamp on a long quiet road,
-flickering, flickering, alive.`,
+After all life is spent.
+If someone asks, "Who was he?"
+Then let the name be faded.
+Say three words: He was free.`,
   },
   {
-    id: "letters",
+    id: "ink",
     num: "II",
-    title: "Letters to No One",
+    title: "Red Ink",
     preview:
-      "There is a kind of ache the late hour sings — gentle, dim-lit, half-remembered, like a love letter from no one in particular…",
-    body: `There is a kind of ache the late hour sings —
-gentle, dim-lit, half-remembered,
-like a love letter from no one in particular.
+      "What use are these words I write, when they no longer spell your name…",
+    body: `What use are these words I write,
+when they no longer spell your name.
 
-The rooftops hold their breath above the noise,
-the trees lean in, listening,
-the moon a coin pressed flat against the dark.
+And if it does not bring you closer,
+then why would I even bother playing my game?
 
-You are somewhere in this map,
-a pin I keep meaning to drop,
-a route I keep almost taking.
+This open field you're hiding in,
+holds that in which I cannot see myself within.
 
-Night is just a verb here.
-We do it together, even when we are alone.`,
+No god could return you to me,
+so why shy away from giving in to the sins?
+
+These hands in which I hold the world,
+why would they hold anything
+if you do not hold them anymore?
+
+This reality in which we are not together,
+why bother saving it from the gore?
+
+Now that you're ignorant to my existence,
+what would I do with my fame?
+
+Tell me, why do I keep spilling
+this red ink on the paper,
+knowing that all the letters in my world
+will never be able to spell your name.`,
   },
   {
-    id: "echoes-poem",
+    id: "stranger",
     num: "III",
-    title: "Echoes",
+    title: "Stranger",
     preview:
-      "I called your name once, into the dark, and the dark — being polite — gave it back to me, three times softer…",
-    body: `I called your name once, into the dark,
-and the dark — being polite —
-gave it back to me, three times softer.
+      "It's strange the way times change, and stranger the way people do…",
+    body: `It's strange the way times change
+and stranger the way people do.
+Stranger still would be your disbelief
+if I came over and said I love you.
 
-Now I keep the syllables in my coat pocket
-next to the ticket stub from a film
-neither of us finished watching.
+You shamed me like I had always been hunting
+a prey on the run.
+You poured the oil and you lit the spark
+then blamed me for the bridges I burned.
 
-The dark does this for everyone, I'm told.
-Holds onto the things we couldn't carry,
-hums them back when the wind is right.
+You went so quickly so far away
+it hadn't even been one day.
+It made sense that you stopped having fun,
+when I realised it was because of a third one.
 
-I am learning the difference
-between a place that listens
-and a place that simply doesn't argue.`,
+You pushed me away
+as if I was nothing more than a fling.
+And if you always cared for me so little
+that I cannot now dare call it love,
+then tell me one thing:
+
+If you could not love me
+when I loved you like I did,
+then why did you hate me
+when I treated you like you did.`,
+  },
+  {
+    id: "dream",
+    num: "IV",
+    title: "Dream",
+    preview:
+      "I showed her the sight of the stars, she said the bright blue sky looks so much more clean…",
+    body: `I showed her the sight of the stars,
+she said the bright blue sky looks so much more clean.
+
+And before I could tell her
+we grew old together — her, in mine —
+she said it's been years
+since she even had a dream.`,
   },
 ]
 
